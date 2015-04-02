@@ -38,7 +38,6 @@ board.on('ready', function () {
             exec('gphoto2 --auto-detect', function (err, stdout, stderr) {
                 if (err || stderr) {
                     console.log('An error occurred');
-                    return false;
                 } else {
                     console.log(stdout);
                 }
@@ -53,16 +52,29 @@ board.on('ready', function () {
                     console.log('An error occurred');
                 } else {
                     console.log(stdout);
-                    fs.rename('capt0000.jpg', (new Date()).getTime() + '.jpg'); 
+                    fs.rename('capt0000.jpg', './photos/' + (new Date()).getTime() + '.jpg'); 
                 }
             });
+        });
+    }
+
+    function photobooth () {
+        capture(true);
+
+        board.wait(5000, function () {
+            capture(true);
+        });
+
+        board.wait(10000, function () {
+            capture(true);
         });
     }
 
     this.repl.inject({
         release : release,
         detect : detect,
-        capture : capture
+        capture : capture,
+        photobooth : photobooth
     });
 
 });
