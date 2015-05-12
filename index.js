@@ -11,6 +11,8 @@ var Gif;
 // Load environment variables
 require('dotenv').load();
 
+AWS.config.loadFromPath('./aws.json');
+
 var isArduino = process.argv[2] === 'arduino';
 var lastCapture = (new Date()).getTime();
 
@@ -167,7 +169,12 @@ board.on('ready', function () {
     function uploadGif (filename) {
         var s3 = new AWS.S3();
 
-        var params = {Bucket: 'fotomat', Key: filename, Body: fs.readFileSync('./gifs/' + filename)};
+        var params = {
+            Bucket: 'fotomat',
+            Key: filename,
+            ContentType: 'image/gif',
+            Body: fs.readFileSync('./gifs/' + filename)
+        };
 
         s3.upload(params, null, function(err, data) {
             if (err) {

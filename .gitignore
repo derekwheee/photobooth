@@ -34,3 +34,4 @@ gifs/
 tmp/
 backup/
 .env
+aws.json
