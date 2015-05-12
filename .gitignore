@@ -30,4 +30,7 @@ node_modules
 
 # Project specific
 photos/
-animation*
+gifs/
+tmp/
+backup/
+.env
