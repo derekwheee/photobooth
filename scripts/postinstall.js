@@ -54,7 +54,7 @@ if (isPi) {
     function installGmagick () {
         console.log(chalk.bgMagenta('Installing graphicsmagick'));
 
-        gmagickSpawn = spawn('sudo apt-get graphicsmagick');
+        gmagickSpawn = spawn('sudo apt-get install graphicsmagick');
 
         gmagickSpawn.stdout.on('data', function (data) {
             console.log(data);
