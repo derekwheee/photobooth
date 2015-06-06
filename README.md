@@ -15,19 +15,19 @@ This will install all required Node packages and Homebrew packages.
 
 ### Raspberry Pi
 
-Installation on the Raspberry Pi requires `apt-get` which you likely have installed. Install dependencies with:
+Installation on the Raspberry Pi requires `apt-get` which you likely have already. Install dependencies with:
 ```
 apt-get update
 npm install
 ```
 
 ### Environment
-Create a `.env` file in the root of them project and your MongoDB URI:
+Create a `.env` file in the root of the project and add your MongoDB URI:
 ```
 MONGOLAB_URI=mongodb://<user>:<password>@path.to/mongodb
 ```
 
-Create a file at `~/.aws/credentials` with you AWS key and secret
+Create a file at `~/.aws/credentials` with your AWS key and secret
 ```
 [default]
 aws_access_key_id = ACCESSKEY
